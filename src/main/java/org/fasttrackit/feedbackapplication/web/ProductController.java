@@ -29,19 +29,19 @@ public class ProductController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Product> getProduct(@PathVariable("id") long id){
+    public ResponseEntity<Product> getProduct(@PathVariable Long id){
         Product product = productService.getProduct(id);
         return new ResponseEntity<>(product, HttpStatus.OK);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Product> updateProduct(@PathVariable long id, @RequestBody @Valid SaveProductRequest request){
+    public ResponseEntity<Product> updateProduct(@PathVariable Long id, @RequestBody @Valid SaveProductRequest request){
         Product product = productService.updateProduct(id, request);
         return new ResponseEntity<>(product, HttpStatus.OK);
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity deleteProduct(@PathVariable long id){
+    public ResponseEntity deleteProduct(@PathVariable Long id){
         productService.deleteProduct(id);
         return new ResponseEntity(HttpStatus.NO_CONTENT);
     }
